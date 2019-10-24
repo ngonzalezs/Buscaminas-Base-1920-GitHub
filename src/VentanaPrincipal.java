@@ -24,7 +24,7 @@ public class VentanaPrincipal {
 	JPanel panelJuego;
 	
 	//Todos los botones se meten en un panel independiente.
-	//Hacemos esto para que podamos cambiar después los componentes por otros
+	//Hacemos esto para que podamos cambiar despues los componentes por otros
 	JPanel [][] panelesJuego;
 	JButton [][] botonesJuego;
 	
@@ -39,7 +39,7 @@ public class VentanaPrincipal {
 	ControlJuego juego;
 	
 	
-	//Constructor, marca el tamaño y el cierre del frame
+	//Constructor, marca el tama�o y el cierre del frame
 	public VentanaPrincipal() {
 		ventana = new JFrame();
 		ventana.setBounds(100, 100, 700, 500);
@@ -129,34 +129,34 @@ public class VentanaPrincipal {
 			}
 		}
 		
-		//BotónEmpezar:
+		//BotonEmpezar:
 		panelEmpezar.add(botonEmpezar);
 		panelPuntuacion.add(pantallaPuntuacion);
 		
 	}
 	
 	/**
-	 * Método que inicializa todos los lísteners que necesita inicialmente el programa
+	 * Metodo que inicializa todos los listeners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
-		//TODO
+		juego.depurarTablero();
 	}
 	
 	
 	/**
-	 * Pinta en la pantalla el número de minas que hay alrededor de la celda
-	 * Saca el botón que haya en la celda determinada y añade un JLabel centrado y no editable con el número de minas alrededor.
-	 * Se pinta el color del texto según la siguiente correspondecia (consultar la variable correspondeciaColor):
+	 * Pinta en la pantalla el numero de minas que hay alrededor de la celda
+	 * Saca el boton que haya en la celda determinada y a�ade un JLabel centrado y no editable con el numero de minas alrededor.
+	 * Se pinta el color del texto segun la siguiente correspondecia (consultar la variable correspondeciaColor):
 	 * - 0 : negro
 	 * - 1 : cyan
 	 * - 2 : verde
 	 * - 3 : naranja
-	 * - 4 ó más : rojo 
-	 * @param i: posición vertical de la celda.
-	 * @param j: posición horizontal de la celda.
+	 * - 4 a mas : rojo 
+	 * @param i: posicion vertical de la celda.
+	 * @param j: posicion horizontal de la celda.
 	 */
 	public void mostrarNumMinasAlrededor(int i , int j) {
-		//TODO
+		
 	}
 	
 	
@@ -170,14 +170,14 @@ public class VentanaPrincipal {
 	}
 
 	/**
-	 * Método que muestra la puntuación por pantalla.
+	 * Metodo que muestra la puntuacion por pantalla.
 	 */
 	public void actualizarPuntuacion() {
 		//TODO
 	}
 	
 	/**
-	 * Método para refrescar la pantalla
+	 * Metodo para refrescar la pantalla
 	 */
 	public void refrescarPantalla(){
 		ventana.revalidate(); 
@@ -185,7 +185,7 @@ public class VentanaPrincipal {
 	}
 
 	/**
-	 * Método que devuelve el control del juego de una ventana
+	 * Metodo que devuelve el control del juego de una ventana
 	 * @return un ControlJuego con el control del juego de la ventana
 	 */
 	public ControlJuego getJuego() {
@@ -193,7 +193,7 @@ public class VentanaPrincipal {
 	}
 
 	/**
-	 * Método para inicializar el programa
+	 * Metodo para inicializar el programa
 	 */
 	public void inicializar(){
 		//IMPORTANTE, PRIMERO HACEMOS LA VENTANA VISIBLE Y LUEGO INICIALIZAMOS LOS COMPONENTES.
