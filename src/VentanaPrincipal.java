@@ -139,7 +139,14 @@ public class VentanaPrincipal {
 	 * Metodo que inicializa todos los listeners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
-		juego.depurarTablero();
+		botonEmpezar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				juego = new ControlJuego();
+				juego.depurarTablero();
+			}
+		});
 	}
 	
 	
@@ -156,8 +163,11 @@ public class VentanaPrincipal {
 	 * @param j: posicion horizontal de la celda.
 	 */
 	public void mostrarNumMinasAlrededor(int i , int j) {
-		
-	}
+		//mal
+		panelesJuego[i][j].remove(botonesJuego[i][j]);
+		panelesJuego[i][j].add(new JLabel(botonesJuego[i][j].getText()));
+		refrescarPantalla();
+	}	
 	
 	
 	/**
@@ -166,14 +176,14 @@ public class VentanaPrincipal {
 	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
-		//TODO
+		
 	}
 
 	/**
 	 * Metodo que muestra la puntuacion por pantalla.
 	 */
 	public void actualizarPuntuacion() {
-		//TODO
+		
 	}
 	
 	/**
