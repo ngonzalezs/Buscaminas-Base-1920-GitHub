@@ -31,13 +31,31 @@ public class ControlJuego {
 	/**Metodo para generar un nuevo tablero de partida:
 	 * @pre: La estructura tablero debe existir. 
 	 * @post: Al final el tablero se habra inicializado con tantas minas como marque la variable MINAS_INICIALES. 
-	 * 			El resto de posiciones que no son minas guardan en el entero cuantas minas hay alrededor de la celda
+	 * 	El resto de posiciones que no son minas guardan en el entero cuantas minas hay alrededor de la celda
 	 */
 	public void inicializarPartida(){
-
+		int posMinaX;
+		int posMinaY;
+		int contMina=0;
 		//TODO: Repartir minas e inicializar puntacion. Si hubiese un tablero anterior, lo pongo todo a cero para inicializarlo.
 		
-		
+		//Inicializamos a 0
+		puntuacion = 0;
+		for(int i=0;i<tablero.length;i++) {
+			for(int j=0;j<tablero[i].length;j++) {
+				tablero[i][j]=0;
+			}
+		}
+		//Repartimos Minas
+		while(contMina<MINAS_INICIALES) {
+			
+			posMinaX = (int) (Math.random()*LADO_TABLERO);
+			posMinaY = (int) (Math.random()*LADO_TABLERO);
+			if (tablero[posMinaX][posMinaY] != MINA){
+				tablero[posMinaX][posMinaY] = MINA;
+				contMina++;
+			}
+		}
 		
 		//Al final del metodo hay que guardar el numero de minas para las casillas que no son mina:
 		for (int i = 0; i < tablero.length; i++) {
