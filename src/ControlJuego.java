@@ -77,30 +77,30 @@ public class ControlJuego {
 	 * @return : El numero de minas que hay alrededor de la casilla [i][j]
 	 **/
 	private int calculoMinasAdjuntas(int i, int j){
-		int posX = i - 1;
-		int posY = i - 1;
+		int posX = i-1;
+		int posY = j-1;
 		int contMinas = 0;
 		int posXFinal = i+1;
-		int posYFinal = i+1;
+		int posYFinal = j+1;
 		
 		if(posX<0) {
 			posX = 0;
 		}
-		if(posX>(LADO_TABLERO-1)) {
-			posX = LADO_TABLERO-1;
+		if(posXFinal>(LADO_TABLERO-1)) {
+			posXFinal = LADO_TABLERO-1;
 		}
 		
 		if(posY<0) {
 			posY = 0;
 		}
 		
-		if(posY>(LADO_TABLERO-1)) {
-			posY = LADO_TABLERO-1;
+		if(posYFinal>(LADO_TABLERO-1)) {
+			posYFinal = LADO_TABLERO-1;
 		}
 		
-		for(int n = posX; n < i+1; n++) {
-			for(int n2 = posY; n < j+1;n++) {
-				if(tablero[n][n2]==MINA) {
+		for(int n = posX; n <= posXFinal; n++) {
+			for(int n2 = posY; n2 <= posYFinal;n2++) {
+				if((tablero[n][n2])==MINA) {
 					contMinas++;
 				}
 			}
