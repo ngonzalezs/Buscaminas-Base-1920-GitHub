@@ -39,7 +39,7 @@ public class VentanaPrincipal {
 	ControlJuego juego;
 	
 	
-	//Constructor, marca el tamaño y el cierre del frame
+	//Constructor, marca el tamaï¿½o y el cierre del frame
 	public VentanaPrincipal() {
 		ventana = new JFrame();
 		ventana.setBounds(100, 100, 700, 500);
@@ -152,7 +152,7 @@ public class VentanaPrincipal {
 	
 	/**
 	 * Pinta en la pantalla el numero de minas que hay alrededor de la celda
-	 * Saca el boton que haya en la celda determinada y añade un JLabel centrado y no editable con el numero de minas alrededor.
+	 * Saca el boton que haya en la celda determinada y aï¿½ade un JLabel centrado y no editable con el numero de minas alrededor.
 	 * Se pinta el color del texto segun la siguiente correspondecia (consultar la variable correspondeciaColor):
 	 * - 0 : negro
 	 * - 1 : cyan
@@ -210,6 +210,12 @@ public class VentanaPrincipal {
 		ventana.setVisible(true);
 		inicializarComponentes();	
 		inicializarListeners();		
+	}
+
+	public void cambiarBotones(int i, int j) {
+		panelesJuego[i][j].removeAll();
+		panelesJuego[i][j].add(new JLabel(Integer.toString(juego.getTablero()[i][j])));
+		refrescarPantalla();
 	}
 
 

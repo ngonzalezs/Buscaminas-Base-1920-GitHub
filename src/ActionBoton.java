@@ -28,7 +28,11 @@ public class ActionBoton implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if(marco.getJuego().getTablero()[i][j] != -1) {
+			marco.cambiarBotones(i,j);
+		}else {
+			JOptionPane.showMessageDialog(null, "Has explotado una mina! Vuelve a empezar");
+		}
 	}
 
 }
