@@ -183,7 +183,10 @@ public class VentanaPrincipal {
 	 * Metodo que muestra la puntuacion por pantalla.
 	 */
 	public void actualizarPuntuacion() {
-		
+		int puntuacion;
+		puntuacion = Integer.parseInt(pantallaPuntuacion.getText());
+		puntuacion++;
+		pantallaPuntuacion.setText(Integer.toString(puntuacion));
 	}
 	
 	/**
