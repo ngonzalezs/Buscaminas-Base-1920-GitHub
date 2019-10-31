@@ -176,6 +176,18 @@ public class VentanaPrincipal {
 	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
+		if(porExplosion) {
+			JOptionPane.showMessageDialog(null, "Has explotado una mina! Vuelve a empezar :c");
+			resetear();
+			refrescarPantalla();
+		}else {
+			JOptionPane.showMessageDialog(null, "Has ganado la partida :D!!");
+			resetear();
+			refrescarPantalla();
+		}
+	}
+
+	public void resetear() {
 		
 	}
 
