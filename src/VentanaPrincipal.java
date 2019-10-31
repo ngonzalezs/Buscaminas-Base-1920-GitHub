@@ -229,7 +229,10 @@ public class VentanaPrincipal {
 
 	public void cambiarBotones(int i, int j) {
 		panelesJuego[i][j].removeAll();
-		panelesJuego[i][j].add(new JLabel(Integer.toString(juego.getTablero()[i][j])));
+		JLabel label = new JLabel(Integer.toString(juego.getMinasAlrededor(i, j)));
+		label.setForeground(correspondenciaColores[juego.getMinasAlrededor(i, j)]);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		panelesJuego[i][j].add(label);
 		refrescarPantalla();
 	}
 
