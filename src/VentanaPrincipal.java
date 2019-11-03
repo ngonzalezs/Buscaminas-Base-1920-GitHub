@@ -13,7 +13,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-
+/**
+ * Esta clase guarda los componente principales
+ * Guarda el control del juego y la puntuacion del mismo.
+ * Inicializamos los paneles principales, el de juego, empezar y puntuacion
+ * Inicializamos los listener el  este metodo {@link #inicializarListeners()} , cuyo codigo es {@code VentanaPrincipal#inicializarListeners()}
+ * 
+ * @author Noah Gonzalez Sanz
+ * 
+ */
 public class VentanaPrincipal {
 
 	//La ventana principal, en este caso, guarda todos los componentes:
@@ -39,7 +47,7 @@ public class VentanaPrincipal {
 	ControlJuego juego;
 	
 	
-	//Constructor, marca el tamaï¿½o y el cierre del frame
+	//Constructor, marca el tamaño y el cierre del frame
 	public VentanaPrincipal() {
 		ventana = new JFrame();
 		ventana.setBounds(100, 100, 700, 500);
@@ -192,7 +200,7 @@ public class VentanaPrincipal {
 	/**
 	 * Muestra una ventana que indica el fin del juego
 	 * @param porExplosion : Un booleano que indica si es final del juego porque ha explotado una mina (true) o bien porque hemos desactivado todas (false) 
-	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
+	 * Todos los botones se desactivan excepto el de volver a iniciar el juego.
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
 		if(porExplosion) {
@@ -204,7 +212,9 @@ public class VentanaPrincipal {
 			bloquearBotones();
 		}
 	}
-
+	/**
+	 * Este metodo inhabilita los botones 
+	 */
 	public void bloquearBotones() {
 		for(int i=0;i<botonesJuego.length;i++) {
 			for(int j=0;j<botonesJuego[i].length;j++) {
@@ -251,8 +261,8 @@ public class VentanaPrincipal {
 	}
 	/**
 	 * Cambiamos los botones por label y lo añadimos centrado y de color
-	 * @param i
-	 * @param j
+	 * @param i coordena i del panelesjuego
+	 * @param j coordena j del panelesjuego
 	 */
 	public void cambiarBotones(int i, int j) {
 		panelesJuego[i][j].removeAll();

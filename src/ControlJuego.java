@@ -31,8 +31,8 @@ public class ControlJuego {
 	
 	
 	/**Metodo para generar un nuevo tablero de partida:
-	 * @pre: La estructura tablero debe existir. 
-	 * @post: Al final el tablero se habra inicializado con tantas minas como marque la variable MINAS_INICIALES. 
+	 * La estructura tablero debe existir. 
+	 * Al final el tablero se habra inicializado con tantas minas como marque la variable MINAS_INICIALES. 
 	 * 	El resto de posiciones que no son minas guardan en el entero cuantas minas hay alrededor de la celda
 	 */
 	public void inicializarPartida(){
@@ -111,7 +111,7 @@ public class ControlJuego {
 	
 	/**
 	 * Metodo que nos permite 
-	 * @pre : La casilla nunca debe haber sido abierta antes, no es controlado por el ControlJuego. Por lo tanto siempre sumaremos puntos
+	 * La casilla nunca debe haber sido abierta antes, no es controlado por el ControlJuego. Por lo tanto siempre sumaremos puntos
 	 * @param i: posicion verticalmente de la casilla a abrir
 	 * @param j: posicion horizontalmente de la casilla a abrir
 	 * @return : Verdadero si no ha explotado una mina. Falso en caso contrario.
@@ -152,7 +152,7 @@ public class ControlJuego {
 
 	/**
 	 * Metodo que se utiliza para obtener las minas que hay alrededor de una celda
-	 * @pre : El tablero tiene que estar ya inicializado, por lo tanto no hace falta calcularlo, simplemente consultarlo
+	 * El tablero tiene que estar ya inicializado, por lo tanto no hace falta calcularlo, simplemente consultarlo
 	 * @param i : posicion vertical de la celda.
 	 * @param j : posicion horizontal de la cela.
 	 * @return Un entero que representa el numero de minas alrededor de la celda
