@@ -1,8 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLabel;
-
 /**
  * Clase que implementa el listener de los botones del Buscaminas.
  * De alguna manera tendra que poder acceder a la ventana principal.
@@ -28,10 +26,16 @@ public class ActionBoton implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(marco.getJuego().getTablero()[i][j] != -1) {
+		if(marco.getJuego().getMinasAlrededor(i, j) != -1) {
 			marco.cambiarBotones(i,j);
+			marco.actualizarPuntuacion();
+			marco.juego.casillasAbiertas++;
+			if(marco.juego.casillasAbiertas == 80) {
+				marco.mostrarFinJuego(false);
+			}
+			
 		}else {
-			JOptionPane.showMessageDialog(null, "Has explotado una mina! Vuelve a empezar");
+			marco.mostrarFinJuego(true);
 		}
 	}
 

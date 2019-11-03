@@ -125,6 +125,7 @@ public class VentanaPrincipal {
 		for (int i = 0; i < botonesJuego.length; i++) {
 			for (int j = 0; j < botonesJuego[i].length; j++) {
 				botonesJuego[i][j] = new JButton("-");
+				botonesJuego[i][j].setEnabled(false);
 				panelesJuego[i][j].add(botonesJuego[i][j]);
 			}
 		}
@@ -139,14 +140,35 @@ public class VentanaPrincipal {
 	 * Metodo que inicializa todos los listeners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
+		for(int i=0;i<botonesJuego.length;i++) {
+			for(int j=0;j<botonesJuego[i].length;j++) {
+				
+			}
+		}
 		botonEmpezar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				juego = new ControlJuego();
 				juego.depurarTablero();
+				for (int i = 0; i < panelesJuego.length; i++) {
+					for (int j = 0; j < panelesJuego[i].length; j++) {
+						panelesJuego[i][j].removeAll();
+						botonesJuego[i][j].setEnabled(true);
+						panelesJuego[i][j].add(botonesJuego[i][j]);					
+					}
+				}
+				pantallaPuntuacion.setText("0");;
+				refrescarPantalla();
 			}
+		
 		});
+		
+		for(int i=0;i<botonesJuego.length;i++) {
+			for(int j=0;j<botonesJuego[i].length;j++) {
+				botonesJuego[i][j].addActionListener(new ActionBoton(i, j, this));
+			}
+		}
 	}
 	
 	
@@ -163,10 +185,7 @@ public class VentanaPrincipal {
 	 * @param j: posicion horizontal de la celda.
 	 */
 	public void mostrarNumMinasAlrededor(int i , int j) {
-		//mal
-		panelesJuego[i][j].remove(botonesJuego[i][j]);
-		panelesJuego[i][j].add(new JLabel(botonesJuego[i][j].getText()));
-		refrescarPantalla();
+		// Metodo hecho en el CambiarBoton
 	}	
 	
 	
@@ -177,18 +196,22 @@ public class VentanaPrincipal {
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
 		if(porExplosion) {
-			JOptionPane.showMessageDialog(null, "Has explotado una mina! Vuelve a empezar :c");
-			resetear();
-			refrescarPantalla();
+			JOptionPane.showMessageDialog(null, "Has explotado una mina! Vuelve a empezar :c");			
+			bloquearBotones();
+			juego.inicializarPartida();
 		}else {
 			JOptionPane.showMessageDialog(null, "Has ganado la partida :D!!");
-			resetear();
-			refrescarPantalla();
+			bloquearBotones();
 		}
 	}
 
-	public void resetear() {
-		
+	public void bloquearBotones() {
+		for(int i=0;i<botonesJuego.length;i++) {
+			for(int j=0;j<botonesJuego[i].length;j++) {
+				botonesJuego[i][j].setEnabled(false);
+			}
+		}
+		refrescarPantalla();
 	}
 
 	/**
@@ -226,7 +249,11 @@ public class VentanaPrincipal {
 		inicializarComponentes();	
 		inicializarListeners();		
 	}
-
+	/**
+	 * Cambiamos los botones por label y lo añadimos centrado y de color
+	 * @param i
+	 * @param j
+	 */
 	public void cambiarBotones(int i, int j) {
 		panelesJuego[i][j].removeAll();
 		JLabel label = new JLabel(Integer.toString(juego.getMinasAlrededor(i, j)));
