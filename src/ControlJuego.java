@@ -8,8 +8,9 @@ import java.util.Random;
  * Si hay una mina en una posicion guarda el numero -1
  * Si no hay una mina, se guarda cuantas minas hay alrededor.
  * Almacena la puntuacion de la partida
- * @author jesusredondogarcia
- *
+ * @author ngonzalezs
+ * @version 1.8
+ * @since 0.1
  */
 public class ControlJuego {
 	int casillasAbiertas = 0;
